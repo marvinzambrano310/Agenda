@@ -41,6 +41,7 @@ public class WinAgenda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         PanelAgenda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,8 +62,12 @@ public class WinAgenda extends javax.swing.JFrame {
         Archivo = new javax.swing.JFileChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         MnuConectar = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         MnuAgenda = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         MnuSalir = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -175,6 +180,15 @@ public class WinAgenda extends javax.swing.JFrame {
                 MnuConectarActionPerformed(evt);
             }
         });
+
+        jMenuItem2.setText("Conectar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        MnuConectar.add(jMenuItem2);
+
         jMenuBar1.add(MnuConectar);
 
         MnuAgenda.setText("Agenda");
@@ -183,6 +197,15 @@ public class WinAgenda extends javax.swing.JFrame {
                 MnuAgendaActionPerformed(evt);
             }
         });
+
+        jMenuItem3.setText("Agenda");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        MnuAgenda.add(jMenuItem3);
+
         jMenuBar1.add(MnuAgenda);
 
         MnuSalir.setText("Salir");
@@ -268,32 +291,11 @@ public class WinAgenda extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void MnuConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuConectarActionPerformed
-       this.Archivo.setVisible(true);
+       
     }//GEN-LAST:event_MnuConectarActionPerformed
 
     private void MnuAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuAgendaActionPerformed
-        this.PanelAgenda.setVisible(true);
-        this.jLabel5.setEnabled(false);
-        try{
-            DefaultTableModel model= new DefaultTableModel();
-            TablaContactos.setModel(model);
-            base.mostrartabla("Agenda");
-            ResultSetMetaData rsmd =base.registros().getMetaData();
-            int columnas= rsmd.getColumnCount();
-            model.addColumn("Codigo");
-            model.addColumn("Nombre");
-            model.addColumn("Telefono Fijo");
-            model.addColumn("Celular");
-            while(base.registros().next()){
-                Object [] filas= new Object[columnas];
-                for (int i=0;i<columnas;i++){
-                    filas[i]=base.registros().getObject(i+1);
-                }
-                model.addRow(filas);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(WinAgenda.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_MnuAgendaActionPerformed
 
     private void ArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArchivoActionPerformed
@@ -353,6 +355,35 @@ public class WinAgenda extends javax.swing.JFrame {
         }   
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       Archivo.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        this.PanelAgenda.setVisible(true);
+        this.jLabel5.setEnabled(false);
+        try{
+            DefaultTableModel model= new DefaultTableModel();
+            TablaContactos.setModel(model);
+            base.mostrartabla("Agenda");
+            ResultSetMetaData rsmd =base.registros().getMetaData();
+            int columnas= rsmd.getColumnCount();
+            model.addColumn("Codigo");
+            model.addColumn("Nombre");
+            model.addColumn("Telefono Fijo");
+            model.addColumn("Celular");
+            while(base.registros().next()){
+                Object [] filas= new Object[columnas];
+                for (int i=0;i<columnas;i++){
+                    filas[i]=base.registros().getObject(i+1);
+                }
+                model.addRow(filas);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WinAgenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,6 +409,9 @@ public class WinAgenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
